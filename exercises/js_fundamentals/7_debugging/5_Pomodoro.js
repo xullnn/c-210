@@ -1,0 +1,44 @@
+var tasks = 10;
+var checkmarks = 0;
+var sessions = 0;
+var minutes = 0;
+
+function pomodoro() {
+  console.log('Work.');
+
+  while (minutes < 25) {
+    minutes += 1;
+    console.log('...' + minutes);
+  }
+
+  console.log('PLING!');
+
+  sessions += 1;
+  checkmarks += 1;
+
+  if (checkmarks === tasks) {
+    console.log('Done!');
+    return;
+  }
+
+  var rest;
+  if (sessions === 4) {
+    sessions = 0;
+    rest = 30;
+  } else {
+    rest = 5;
+  }
+
+  console.log('Rest for ' + rest + ' minutes.');
+
+  var minutes = 0;
+  pomodoro();
+}
+
+pomodoro();
+
+// I have no idea!!!
+
+// Look at line 34
+// Think about hoisted inside function definiton
+// What's the return value of undefined < 25 ?
