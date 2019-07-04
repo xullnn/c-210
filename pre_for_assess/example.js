@@ -61,3 +61,27 @@ console.log(groupRepeatedElems([1, 2, 3]))// -> [[1], [2], [3]]
 console.log(groupRepeatedElems([])) // []
 console.log(groupRepeatedElems([1, 1, 2, 3, 2, 3, '1']))
 console.log(groupRepeatedElems([1, 1, 2, 3, 2, 3, '1', '2', '1']))
+
+
+
+// another solution
+
+// unique the input array
+// map through the unique array
+//   fitler each element from the input array
+
+function uniqueArray(array) {
+  let uniques = [];
+
+  for(let i = 0; i < array.length; i += 1) {
+    if (!uniques.includes(array[i])) uniques.push(array[i])
+  }
+
+  return uniques;
+}
+
+function groupRepeatedElems(array) {
+  return uniqueArray(array).map(uniqueElement => {
+    return array.filter(e => e === uniqueElement);
+  })
+}
